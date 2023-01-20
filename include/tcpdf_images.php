@@ -89,9 +89,9 @@ class TCPDF_IMAGES {
 
 	/**
 	 * Set the transparency for the given GD image.
-	 * @param resource $new_image GD image object
-	 * @param resource $image GD image object.
-	 * @return resource GD image object $new_image
+	 * @param GDImage $new_image GD image object
+	 * @param GDImage $image GD image object.
+	 * @return GDImage GD image object $new_image
 	 * @since 4.9.016 (2010-04-20)
 	 * @public static
 	 */
@@ -114,7 +114,7 @@ class TCPDF_IMAGES {
 	/**
 	 * Convert the loaded image to a PNG and then return a structure for the PDF creator.
 	 * This function requires GD library and write access to the directory defined on K_PATH_CACHE constant.
-	 * @param resource $image Image object.
+	 * @param GDImage $image Image object.
 	 * @param string $tempfile Temporary file name.
 	 * return image PNG image object.
 	 * @since 4.9.016 (2010-04-20)
@@ -137,7 +137,7 @@ class TCPDF_IMAGES {
 	/**
 	 * Convert the loaded image to a JPEG and then return a structure for the PDF creator.
 	 * This function requires GD library and write access to the directory defined on K_PATH_CACHE constant.
-	 * @param resource $image Image object.
+	 * @param GDImage $image Image object.
 	 * @param int $quality JPEG quality.
 	 * @param string $tempfile Temporary file name.
 	 * return array|false image JPEG image object.

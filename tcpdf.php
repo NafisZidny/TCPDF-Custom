@@ -7415,7 +7415,7 @@ class TCPDF {
 
 	/**
 	 * Get the GD-corrected PNG gamma value from alpha color
-	 * @param resource $img GD image Resource ID.
+	 * @param GDImage $img GD image Resource ID.
 	 * @param int $c alpha color
 	 * @protected
 	 * @since 4.3.007 (2008-12-04)
@@ -8992,7 +8992,7 @@ class TCPDF {
 				//Descriptor
 				$this->_newobj();
 				$s = '<</Type /FontDescriptor /FontName /'.$name;
-				foreach ($font['desc'] as $fdk => $fdv) {
+				foreach (str_split($font['desc']) as $fdk => $fdv) {
 					if (is_float($fdv)) {
 						$fdv = sprintf('%F', $fdv);
 					}
@@ -9206,7 +9206,7 @@ class TCPDF {
 			if ((!$this->pdfa_mode) AND isset($info['altimgs']) AND !empty($info['altimgs'])) {
 				$altoid = $this->_newobj();
 				$out = '[';
-				foreach ($info['altimgs'] as $altimage) {
+				foreach (str_split($info['altimgs']) as $altimage) {
 					if (isset($this->xobjects['I'.$altimage[0]]['n'])) {
 						$out .= ' << /Image '.$this->xobjects['I'.$altimage[0]]['n'].' 0 R';
 						$out .= ' /DefaultForPrinting';
@@ -9272,7 +9272,7 @@ class TCPDF {
 				}
 				if (isset($info['trns']) AND is_array($info['trns'])) {
 					$trns = '';
-					$count_info = count($info['trns']);
+					$count_info = strlen($info['trns']);
 					if ($info['cs'] == 'Indexed') {
 						$maxval =(pow(2, $info['bpc']) - 1);
 						for ($i = 0; $i < $count_info; ++$i) {
